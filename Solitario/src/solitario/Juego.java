@@ -60,14 +60,57 @@ public class Juego {
                     jugando = false;
                     break;
                 case 1: // hacer intercambios
-                    mostrarMonticulos();
+                    System.out.println("0.De tablero a tablero:");
+                    System.out.println("1.De tablero a palo:");
+                    System.out.println("2.De baraja a tablero:");
+                    System.out.println("3.De baraja a palo:");
+                    int op = entradaEscaner.nextInt();
+
+                    switch (op) {
+                        case 0:
+                            System.out.print("DE TABLERO: ");
+                            int opc1 = entradaEscaner.nextInt();
+                            System.out.print("A TABLERO: ");
+                            int opc2 = entradaEscaner.nextInt();
+                            Monticulo aux = (((Pila) tablero[opc1]).desapilar());
+//                          boolean recibir = ((Pila) tablero[opc2]).recibirMonticulo(aux);
+//                          if (!recibir) {
+//                              ((Pila) tablero[opc1]).recibirMonticulo(aux);
+//                          }
+
+                            break;
+                        case 1:
+                            System.out.print("DE TABLERO: ");
+                            int opc3 = entradaEscaner.nextInt();
+                            System.out.print("A PALO: ");
+                            int opc4 = entradaEscaner.nextInt();
+
+                            break;
+                        case 2:
+                            Carta c = (Carta) barajaAyuda.entregarCarta();;
+                            System.out.print("A TABLERO: ");
+                            int opc6 = entradaEscaner.nextInt();
+                            if(!((Pila) tablero[opc6]).recibirMonticulo(c)){
+                                barajaAyuda.devolverCarta(c);
+                            }
+                            break;
+                        case 3:
+                            System.out.print("DE BARAJA: ");
+                            int opc7 = entradaEscaner.nextInt();
+                            System.out.print("A PALO: ");
+                            int opc8 = entradaEscaner.nextInt();
+
+                            break;
+                        default:
+                            System.out.println("opcion invalida");
+                            break;
+                    }
                     break;
                 case 2:
                     if (barajaAyuda.cantidadCartas() > 0) {
                         barajaJuego.agregarCartaAlFinal((Carta) barajaAyuda.entregarCarta());
                     }
                     barajaAyuda.agregarCartaAlFinal((Carta) barajaJuego.entregarCarta());
-                    //barajaAyuda.imprimirBaraja();
                     break;
                 case 3:
                     barajaJuego.imprimirBarajaDestapada();
@@ -85,13 +128,13 @@ public class Juego {
         barajaAyuda.imprimirBaraja();
         System.out.println("");
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
-        
-        imprimirTablero(subida, "Palos completos 1-4","SUBIDA");
-        imprimirTablero(tablero, "Palos tablero 1-7","TABLERO");
+
+        imprimirTablero(subida, "Palos completos 1-4", "SUBIDA");
+        imprimirTablero(tablero, "Palos tablero 1-7", "TABLERO");
 
     }
-    
-    public void imprimirTablero(Monticulo[] tablero, String titulo,String column){
+
+    public void imprimirTablero(Monticulo[] tablero, String titulo, String column) {
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
         System.out.println(titulo.toUpperCase());
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
@@ -104,7 +147,7 @@ public class Juego {
         }
         //imprimir titulo de cada tablero
         for (int y = 0; y < tablero.length; y++) {
-            System.out.print(column+" "+y+"\t\t | ");
+            System.out.print(column + " " + y + "\t\t | ");
         }
         System.out.println("");
         //Imprimir tablero como matriz

@@ -16,19 +16,19 @@ public class Solitario {
      */
     public static void main(String[] args) {
         new Juego();
-//    b.barajar();
-
+//    //b.barajar();
+//
 //        Baraja b = new Baraja();
 ////        b.imprimirBaraja();
 //        PilaSubida ps = new PilaSubida();
 //        ps.recibirMonticulo(b.entregarCarta());
-//        ps.mostrarPila();
-//    PilaSubida ps = new PilaSubida();
+//        //ps.mostrarPila();
+//    //PilaSubida ps = new PilaSubida();
 //    ps.recibirMonticulo(b.entregarCarta());
 //    Carta c = (Carta) b.entregarCarta(3);
 //    if(!ps.recibirMonticulo(c))
 //       b.devolverCarta(c);
-//    b.imprimirBaraja();
+//    //b.imprimirBaraja();
 //    ps.mostrarPila();
     }
 

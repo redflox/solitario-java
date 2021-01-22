@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BarajaAyuda {
-
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
     private ArrayList<Carta> cartas = new ArrayList<Carta>();
 
     public void imprimirBaraja() {
         for (Carta c : cartas) {
-            System.out.println(c);
+            if(c.esNegra()){
+                System.out.println(c);
+            }else{
+                System.out.println(ANSI_RED+c+ANSI_RESET);
+                
+            }
+            
         }
     }
 
