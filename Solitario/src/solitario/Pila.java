@@ -20,6 +20,10 @@ public abstract class Pila implements Monticulo {
         return cartas.size();
     }
 
+    public Monticulo getMonticulo(int i) {
+        return cartas.get(i);
+    }
+
     public Stack<Monticulo> getCartas() {
         return cartas;
     }
@@ -27,6 +31,25 @@ public abstract class Pila implements Monticulo {
     public void mostrarPila() {
         for (Monticulo m : cartas) {
             System.out.println(((Carta) m));
+        }
+    }
+
+    public void mostrarPilaEnumerada() {
+        int aux = 0;
+        for (Monticulo m : cartas) {
+            if (!((Carta) m).isTapada()) {
+                aux++;
+            }
+
+        }
+        for (Monticulo m : cartas) {
+            if (((Carta) m).isTapada()) {
+                System.out.println(((Carta) m));
+            } else {
+                System.out.println(aux + " - " + ((Carta) m));
+                aux--;
+            }
+
         }
     }
 
@@ -73,6 +96,10 @@ public abstract class Pila implements Monticulo {
 
     public Stack<Monticulo> getPila() {
         return cartas;
+    }
+
+    void push(Monticulo c) {
+        cartas.push(c);
     }
 
 }

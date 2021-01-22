@@ -26,9 +26,9 @@ public class BarajaAyuda {
     }
 
     public Monticulo entregarCarta() {
-        Carta x = cartas.remove(0);
-        x.tapar();
-        return x;
+        //Carta x = cartas.remove(0);
+        //x.tapar();
+        return cartas.remove(0);
     }
 
     public Monticulo entregarCarta(int i) {

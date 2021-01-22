@@ -70,13 +70,14 @@ public class Juego {
                         case 0:
                             System.out.print("DE TABLERO: ");
                             int opc1 = entradaEscaner.nextInt();
+                            ((Pila) tablero[opc1]).mostrarPilaEnumerada();
+                            System.out.print("DESDE QUE CARTA DESEA MOVER: ");
+                            int opc10 = entradaEscaner.nextInt();
+                            Carta cartaPivote = (Carta) ((Pila) tablero[opc1]).getMonticulo(((Pila) tablero[opc1]).size() - opc10);
+
                             System.out.print("A TABLERO: ");
                             int opc2 = entradaEscaner.nextInt();
-                            Monticulo aux = (((Pila) tablero[opc1]).desapilar());
-//                          boolean recibir = ((Pila) tablero[opc2]).recibirMonticulo(aux);
-//                          if (!recibir) {
-//                              ((Pila) tablero[opc1]).recibirMonticulo(aux);
-//                          }
+                            ((PilaTablero) tablero[opc2]).recibirMonticulo(((PilaTablero) tablero[opc1]).desapilarPro(cartaPivote));
 
                             break;
                         case 1:
@@ -87,10 +88,16 @@ public class Juego {
 
                             break;
                         case 2:
-                            Carta c = (Carta) barajaAyuda.entregarCarta();;
+                            Carta c = (Carta) barajaAyuda.entregarCarta();
+                            System.out.println("MI CARTA: " + c);
                             System.out.print("A TABLERO: ");
                             int opc6 = entradaEscaner.nextInt();
-                            if(!((Pila) tablero[opc6]).recibirMonticulo(c)){
+
+                            Pila p = new PilaTablero();
+                            p.push(c);
+
+                            if (!((Pila) tablero[opc6]).recibirMonticulo(p)) {
+                                System.out.println("entro!!");
                                 barajaAyuda.devolverCarta(c);
                             }
                             break;
@@ -129,6 +136,7 @@ public class Juego {
         System.out.println("");
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
 
+        destaparUltimaCartaDeLosTableros();
         imprimirTablero(subida, "Palos completos 1-4", "SUBIDA");
         imprimirTablero(tablero, "Palos tablero 1-7", "TABLERO");
 
@@ -138,6 +146,7 @@ public class Juego {
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
         System.out.println(titulo.toUpperCase());
         System.out.println("________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
         //saber que tablero tiene mas tamaño para imprimir
         int tamañoMasGrandeTablero = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -157,6 +166,15 @@ public class Juego {
                 ((Pila) tablero[y]).mostrarPila(i);
             }
             System.out.println("");
+        }
+    }
+
+    private void destaparUltimaCartaDeLosTableros() {
+        for (Monticulo tablero1 : tablero) {
+            PilaTablero pilaAux = (PilaTablero) tablero1;
+            if (((Carta) pilaAux.entregarCarta()).isTapada()) {
+                ((Carta) pilaAux.entregarCarta()).destapar();
+            }
         }
     }
 }
