@@ -77,4 +77,11 @@ public class PilaTablero extends Pila {
         }
         return null;
     }
+    
+    public Carta desapilarUltima() {
+        if(cartas.size()>0){
+            return (Carta)cartas.pop();
+        }
+        return null;
+    }
 }

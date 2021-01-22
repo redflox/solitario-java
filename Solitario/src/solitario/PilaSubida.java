@@ -2,6 +2,7 @@ package solitario;
 public class PilaSubida extends Pila{
   @Override
   public boolean recibirMonticulo(Monticulo m){
+      System.out.println("1. = "+ m.getClass()+ " 2. =  "+ Carta.class);
     if(m.getClass().equals(Carta.class)){
       Carta nueva = (Carta) m;
       if(cartas.isEmpty()){

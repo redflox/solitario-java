@@ -57,23 +57,23 @@ public abstract class Pila implements Monticulo {
         try {
             if ((!((Carta) cartas.get(i)).esNegra()) && !((Carta) cartas.get(i)).isTapada()) {
                 if (cartas.get(i).toString().length() == 13) {
-                    System.out.print("" + ANSI_RED + cartas.get(i) + ANSI_RESET + "\t | ");
+                    System.out.print("" + ANSI_RED + cartas.get(i).toString().toUpperCase() + ANSI_RESET + "\t | ");
                 } else if (cartas.get(i).toString().length() == 14) {
-                    System.out.print("" + ANSI_RED + cartas.get(i) + ANSI_RESET + "\t | ");
+                    System.out.print("" + ANSI_RED + cartas.get(i).toString().toUpperCase() + ANSI_RESET + "\t | ");
                 } else if (cartas.get(i).toString().length() > 14) {
-                    System.out.print("" + ANSI_RED + cartas.get(i) + ANSI_RESET + "\t | ");
+                    System.out.print("" + ANSI_RED + cartas.get(i).toString().toUpperCase() + ANSI_RESET + "\t | ");
                 } else {
-                    System.out.print("" + ANSI_RED + cartas.get(i) + ANSI_RESET + "\t\t | ");
+                    System.out.print("" + ANSI_RED + cartas.get(i).toString().toUpperCase() + ANSI_RESET + "\t\t | ");
                 }
             } else {
                 if (cartas.get(i).toString().length() == 13) {
-                    System.out.print(cartas.get(i) + "\t | ");
+                    System.out.print(cartas.get(i).toString().toUpperCase() + "\t | ");
                 } else if (cartas.get(i).toString().length() == 14) {
-                    System.out.print("" + cartas.get(i) + "\t | ");
+                    System.out.print("" + cartas.get(i).toString().toUpperCase() + "\t | ");
                 } else if (cartas.get(i).toString().length() > 14) {
-                    System.out.print("" + cartas.get(i) + "\t | ");
+                    System.out.print("" + cartas.get(i).toString().toUpperCase() + "\t | ");
                 } else {
-                    System.out.print("" + cartas.get(i) + "\t\t | ");
+                    System.out.print("" + cartas.get(i).toString().toUpperCase() + "\t\t | ");
                 }
             }
 

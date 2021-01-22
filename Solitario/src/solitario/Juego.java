@@ -85,7 +85,7 @@ public class Juego {
                             int opc3 = entradaEscaner.nextInt();
                             System.out.print("A PALO: ");
                             int opc4 = entradaEscaner.nextInt();
-
+                            System.out.println("==" + ((Pila) subida[opc4]).recibirMonticulo(((PilaTablero) tablero[opc3]).desapilarUltima()));
                             break;
                         case 2:
                             Carta c = (Carta) barajaAyuda.entregarCarta();
@@ -102,11 +102,13 @@ public class Juego {
                             }
                             break;
                         case 3:
-                            System.out.print("DE BARAJA: ");
-                            int opc7 = entradaEscaner.nextInt();
+                            Carta c1 = (Carta) barajaAyuda.entregarCarta();
                             System.out.print("A PALO: ");
                             int opc8 = entradaEscaner.nextInt();
-
+                            if (!((Pila) subida[opc8]).recibirMonticulo(c1)) {
+                                System.out.println("entro!!");
+                                barajaAyuda.devolverCarta(c1);
+                            }
                             break;
                         default:
                             System.out.println("opcion invalida");
